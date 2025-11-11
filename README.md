@@ -365,11 +365,4 @@ If you use this in a lab or demo, consider showing:
 - A **VIOLENT / TOO CLOSE** scenario (people close)
 - The **console logs** + annotated **video output** side by side.
 
----
 
-## 💡 Next Steps / Extensions
-
-- Add **color-coded bounding circles** (green = safe, red = violation)
-- Add **on-screen text overlay** per person pair
-- Log statistics over time: percentage of safe vs unsafe frames
-- Port to a **web dashboard** or **MQTT alerts**
