@@ -1,5 +1,3 @@
-# jetson-social-distance-posenet
-
 # 🧪 Real-Time Social Distancing & Violence Proximity Detection (Jetson + poseNet)
 
 > **Tagline:** _From raw camera feed ➜ to live pose estimation ➜ to distance-based “violence” alerts_  
@@ -375,12 +373,3 @@ If you use this in a lab or demo, consider showing:
 - Add **on-screen text overlay** per person pair
 - Log statistics over time: percentage of safe vs unsafe frames
 - Port to a **web dashboard** or **MQTT alerts**
-
----
-
-Happy hacking on Jetson! 🚀  
-If you’d like, I can also help you add:
-
-- A `requirements.txt`  
-- A minimal `setup.sh` to configure the environment  
-- Or a **Jupyter notebook version** for teaching/demo.
