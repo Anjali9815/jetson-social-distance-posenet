@@ -64,7 +64,7 @@ You can tune both thresholds:
 
 ```bash
 your-project/
-├── social_distance_posenet5.py   # main script (image + realtime)
+├── social_distance_posenet.py   # main script (image + realtime)
 ├── result/                       # output folder (auto-created)
 │   ├── <image_name>_result.jpg   # annotated single-image result
 │   └── violence_realtime.mp4     # recorded realtime video
@@ -104,7 +104,7 @@ git clone https://github.com/Anjali9815/jetson-social-distance-posenet.git
 cd jetson-social-distance-posenet
 ```
 
-Copy `social_distance_posenet5.py` into a suitable place inside your `jetson-inference` data folder, or keep it in this repo and just run it from here.
+Copy `social_distance_posenet.py` into a suitable place inside your `jetson-inference` data folder, or keep it in this repo and just run it from here.
 
 ---
 
@@ -113,7 +113,7 @@ Copy `social_distance_posenet5.py` into a suitable place inside your `jetson-inf
 Run the script on a single image:
 
 ```bash
-python3 social_distance_posenet5.py \
+python3 social_distance_posenet.py \
     --image ../image/violence/violence_lab_mp4-0000_jpg.rf.2f1d50c0434949b56e64c10114c509bd.jpg \
     --distance 150 \
     --rel_threshold 0.7
@@ -150,7 +150,7 @@ What happens:
 For a **live USB webcam** on `/dev/video0`:
 
 ```bash
-python3 social_distance_posenet5.py \
+python3 social_distance_posenet.py \
     /dev/video0 \
     display://0 \
     --distance 150 \
@@ -187,7 +187,7 @@ What happens:
 You can also use a video file or RTSP stream:
 
 ```bash
-python3 social_distance_posenet5.py \
+python3 social_distance_posenet.py \
     my_video.mp4 \
     display://0 \
     --distance 150
@@ -196,7 +196,7 @@ python3 social_distance_posenet5.py \
 or:
 
 ```bash
-python3 social_distance_posenet5.py \
+python3 social_distance_posenet.py \
     rtsp://user:pass@ip:port/stream \
     display://0
 ```
@@ -329,7 +329,7 @@ Try the following to explore the behavior:
 ### ✅ Single image:
 
 ```bash
-python3 social_distance_posenet5.py \
+python3 social_distance_posenet.py \
     --image ../image/violence/violence_lab_mp4-0000_jpg.rf.2f1d50c0434949b56e64c10114c509bd.jpg \
     --distance 150 \
     --rel_threshold 0.7
@@ -338,7 +338,7 @@ python3 social_distance_posenet5.py \
 ### ✅ Live camera:
 
 ```bash
-python3 social_distance_posenet5.py \
+python3 social_distance_posenet.py \
     /dev/video0 \
     display://0 \
     --distance 150 \
