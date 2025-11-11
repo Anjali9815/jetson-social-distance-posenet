@@ -102,7 +102,7 @@ You can name the repo something like:
 Example:
 
 ```bash
-git clone https://github.com/<your-username>/jetson-social-distance-posenet.git
+git clone https://github.com/Anjali9815/jetson-social-distance-posenet.git
 cd jetson-social-distance-posenet
 ```
 
