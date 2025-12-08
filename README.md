@@ -1,6 +1,6 @@
-# 🧪 Real-Time Social Distancing & Violence Proximity Detection (Jetson + poseNet)
+# 🧪 Real-Time Social Distancing & Violation Proximity Detection (Jetson + poseNet)
 
-> **Tagline:** _From raw camera feed ➜ to live pose estimation ➜ to distance-based “violence” alerts_  
+> **Tagline:** _From raw camera feed ➜ to live pose estimation ➜ to distance-based “Violation” alerts_  
 > Built on **NVIDIA Jetson** + **jetson-inference** + **poseNet**
 
 ---
@@ -15,7 +15,7 @@ It supports:
    - Load an image  
    - Run pose estimation (poseNet)  
    - Compute distances between people  
-   - Decide whether it’s **SAFE** or **TOO CLOSE / “VIOLENCE”**  
+   - Decide whether it’s **SAFE** or **TOO CLOSE / “Violation”**  
    - Save the **annotated image** to a `result/` folder
 
 2. ✅ **Realtime Camera / Video Monitoring**  
@@ -23,13 +23,13 @@ It supports:
    - Run poseNet **per frame**  
    - Compute distances & flag violations live  
    - Display annotated video in a window  
-   - **Record the full annotated stream** to `result/violence_realtime.mp4`
+   - **Record the full annotated stream** to `result/Violation_realtime.mp4`
 
 Everything is powered by:
 
 - **poseNet (ResNet18-Body)** from `jetson-inference`
 - **Hip-based person center + height estimation**
-- **Absolute & relative distance thresholds** to decide “violence” / too close.
+- **Absolute & relative distance thresholds** to decide “Violation” / too close.
 
 ---
 
@@ -48,7 +48,7 @@ We:
 
 ```text
 if distance < ABS_THRESHOLD or distance / avg_height < REL_THRESHOLD:
-    => VIOLENCE / TOO CLOSE
+    => Violation / TOO CLOSE
 else:
     => SAFE
 ```
@@ -67,10 +67,10 @@ your-project/
 ├── social_distance_posenet.py   # main script (image + realtime)
 ├── result/                       # output folder (auto-created)
 │   ├── <image_name>_result.jpg   # annotated single-image result
-│   └── violence_realtime.mp4     # recorded realtime video
+│   └── Violation_realtime.mp4     # recorded realtime video
 └── image/
-    ├── violence/                 # violence / too-close example images
-    └── no_violence/              # safe / socially distant images
+    ├── Violation/                 # Violation / too-close example images
+    └── no_Violation/              # safe / socially distant images
 ```
 
 > ✨ The script automatically creates `result/` in the **current working directory**.
@@ -114,7 +114,7 @@ Run the script on a single image:
 
 ```bash
 python3 social_distance_posenet.py \
-    --image ../image/violence/violence_lab_mp4-0000_jpg.rf.2f1d50c0434949b56e64c10114c509bd.jpg \
+    --image ../image/Violation/Violation_lab_mp4-0000_jpg.rf.2f1d50c0434949b56e64c10114c509bd.jpg \
     --distance 150 \
     --rel_threshold 0.7
 ```
@@ -136,7 +136,7 @@ What happens:
   ```
 - Final verdict:
   ```text
-  => VIOLENCE / TOO CLOSE DETECTED (at least one rule violated)
+  => Violation / TOO CLOSE DETECTED (at least one rule violated)
   ```
 - Annotated result image is saved to:
   ```bash
@@ -166,7 +166,7 @@ What happens:
 
   ```text
   [FRAME] SAFE, people=1
-  [FRAME] VIOLENCE, people=2
+  [FRAME] Violation, people=2
   ...
   ```
 
@@ -175,13 +175,13 @@ What happens:
   - People moving in real time
   - Window title includes status & FPS:
     ```text
-    VIOLENCE | Network 22 FPS
+    Violation | Network 22 FPS
     ```
 
 - A **full annotated recording** is saved to:
 
   ```bash
-  result/violence_realtime.mp4
+  result/Violation_realtime.mp4
   ```
 
 You can also use a video file or RTSP stream:
@@ -217,7 +217,7 @@ Try the following to explore the behavior:
 
 3. 🎥 **Test different scenarios**  
    - People far apart → should be **SAFE**  
-   - People very close → should trigger **VIOLENCE**  
+   - People very close → should trigger **Violation**  
    - Crowd scenes → many pairs, check logs.
 
 4. 📊 **Log to CSV** (extension idea)  
@@ -236,7 +236,7 @@ Try the following to explore the behavior:
 
 ```bash
 python3 social_distance_posenet.py \
-    --image ../image/violence/violence_lab_mp4-0000_jpg.rf.2f1d50c0434949b56e64c10114c509bd.jpg \
+    --image ../image/Violation/Violation_lab_mp4-0000_jpg.rf.2f1d50c0434949b56e64c10114c509bd.jpg \
     --distance 150 \
     --rel_threshold 0.7
 ```
@@ -254,7 +254,7 @@ python3 social_distance_posenet.py \
 Resulting video:
 
 ```bash
-result/violence_realtime.mp4
+result/Violation_realtime.mp4
 ```
 
 ---
